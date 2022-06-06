@@ -20,7 +20,7 @@ import (
 type VerifiableIdentityAddress struct {
 	// When this entry was created
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-	Id string `json:"id,omitempty"`
+	Id *string `json:"id,omitempty"`
 	// VerifiableAddressStatus must not exceed 16 characters as that is the limitation in the SQL Schema
 	Status string `json:"status"`
 	// When this entry was last updated
@@ -38,7 +38,7 @@ type VerifiableIdentityAddress struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVerifiableIdentityAddress(id string, status string, value string, verified bool, via string) *VerifiableIdentityAddress {
+func NewVerifiableIdentityAddress(id *string, status string, value string, verified bool, via string) *VerifiableIdentityAddress {
 	this := VerifiableIdentityAddress{}
 	this.Id = id
 	this.Status = status
@@ -89,9 +89,9 @@ func (o *VerifiableIdentityAddress) SetCreatedAt(v time.Time) {
 }
 
 // GetId returns the Id field value
-func (o *VerifiableIdentityAddress) GetId() string {
+func (o *VerifiableIdentityAddress) GetId() *string {
 	if o == nil {
-		var ret string
+		var ret *string
 		return ret
 	}
 
@@ -104,11 +104,11 @@ func (o *VerifiableIdentityAddress) GetIdOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
 // SetId sets field value
-func (o *VerifiableIdentityAddress) SetId(v string) {
+func (o *VerifiableIdentityAddress) SetId(v *string) {
 	o.Id = v
 }
 
